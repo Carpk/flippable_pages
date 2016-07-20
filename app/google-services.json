@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "844273152034",
+    "firebase_url": "https://cloudorder-a575a.firebaseio.com",
+    "project_id": "cloudorder-a575a",
+    "storage_bucket": "cloudorder-a575a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844273152034:android:37bdb1034063856f",
+        "android_client_info": {
+          "package_name": "com.shawnklein.carpk.cloudorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844273152034-jln56p4gf1m6sahs3nkojgikhggv7nnf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZy-J9thgRO5ahV9w7faBvD2MZr_hRF4k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
