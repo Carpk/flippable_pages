@@ -10,8 +10,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button mTrueButton;
-    private Button mFalseButton;
     private Button mNextButton;
     private TextView mQuestionTextView;
     private static final String TAG ="MainActivity";
@@ -28,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private int mCurrentIndex = 0;
 
     private void createTrueButton() {
-        mTrueButton = (Button)findViewById(R.id.true_button);
-        mTrueButton.setOnClickListener(new View.OnClickListener() {
+        Button trueButton = (Button) findViewById(R.id.true_button);
+        trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 checkAnswer(true);
@@ -38,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createFalseButton() {
-        mFalseButton = (Button)findViewById(R.id.false_button);
-        mFalseButton.setOnClickListener(new View.OnClickListener() {
+        Button falseButton = (Button) findViewById(R.id.false_button);
+        falseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 checkAnswer(false);
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkAnswer(boolean userPressedTrue) {
         boolean answerIsTrue = mQuestionBank[mCurrentIndex].isTrueQuestion();
 
-        int messageResId = 0;
+        int messageResId;
 
         if (userPressedTrue == answerIsTrue) {
             messageResId = R.string.correct_toast;
@@ -103,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
         createNextButton();
 
         createBackButton();
+
+        if (savedInstanceState != null) {
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
 
         updateQuestion();
     }
