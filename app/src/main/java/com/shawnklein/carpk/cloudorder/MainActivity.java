@@ -1,6 +1,9 @@
 package com.shawnklein.carpk.cloudorder;
 
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mNextButton;
     private Button mCheatButton;
+    private TextView mApiTextView;
     private TextView mQuestionTextView;
     private static final String TAG ="MainActivity";
     private static final String KEY_INDEX = "index";
@@ -102,11 +106,23 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
     }
 
+    @TargetApi(11)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate(Bundle) called");
         setContentView(R.layout.activity_main);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            // // Need to set DISPLAY_SHOW_TITLE
+            // final ActionBar actionBar = getActionBar();
+            // actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE);
+            // actionBar.setSubtitle("Bodies of Water");
+        }
+
+        mApiTextView = (TextView)findViewById(R.id.api_level_view);
+        int versionNumber = Build.VERSION.SDK_INT;
+        mApiTextView.setText(Integer.toString(versionNumber));
 
         mQuestionTextView = (TextView)findViewById(R.id.question_text_view);
 
